@@ -1,11 +1,36 @@
 import { Dialog } from '@material-ui/core';
 import { videosList } from 'data/database/videos-data';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import ContentBox from 'ui/components/data-display/ContentBox';
 
 export default function Videos() {
-    const [selectedVideo, setVideo] = useState('');
+    const [selectedVideo, setVideo] = useState(''),
+        videosListElements = useMemo(
+            () =>
+                videosList.map((videoCollection) => (
+                    <ContentBox
+                        key={videoCollection.year}
+                        title={`Vídeos de ${videoCollection.year}`}
+                    >
+                        {videoCollection.videos.map((video) => (
+                            <div key={video.id}>
+                                <img
+                                    src={`https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={() => setVideo(video.src)}
+                                />
+                                <br />
+                                {video.title}
+                                <br />
+                                <br />
+                                <br />
+                            </div>
+                        ))}
+                    </ContentBox>
+                )),
+            [videosList]
+        );
     return (
         <>
             <Head>
@@ -28,27 +53,7 @@ export default function Videos() {
                 )}
             </Dialog>
 
-            {videosList.map((videoCollection) => (
-                <ContentBox
-                    key={videoCollection.year}
-                    title={`Vídeos de ${videoCollection.year}`}
-                >
-                    {videoCollection.videos.map((video) => (
-                        <div key={video.id}>
-                            <img
-                                src={`https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
-                                style={{ cursor: 'pointer' }}
-                                onClick={() => setVideo(video.src)}
-                            />
-                            <br />
-                            {video.title}
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    ))}
-                </ContentBox>
-            ))}
+            {videosListElements}
         </>
     );
 }
