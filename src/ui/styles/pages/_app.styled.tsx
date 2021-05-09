@@ -2,6 +2,10 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 
 export const ContentContainer = styled(Container)`
+    display: grid;
+    grid-auto-flow: row;
+    gap: ${({ theme }) => theme.spacing(2)};
+    align-content: start;
     padding: ${({ theme }) => theme.spacing(2)};
     background-color: var(--background-light);
     border-radius: 10px;

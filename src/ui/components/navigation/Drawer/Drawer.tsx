@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Box, Link } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import useIsMobile from 'data/hooks/useIsMobile';
 import ContentBox from 'ui/components/data-display/ContentBox';
 import { DrawerStyled } from './Drawer.style';
+import Link from 'next/link';
 
 interface DrawerProps {
     isOpen: boolean;
@@ -21,8 +22,8 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
                 }}
                 onClose={onClose}
             >
-                <Link href="/" style={{ textAlign: 'center' }}>
-                    <a>
+                <Link href="/">
+                    <a style={{ textAlign: 'center' }}>
                         <img
                             src={'/emmanuel-logo.png'}
                             alt={'Instituto Educacional Emmanuel'}

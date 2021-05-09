@@ -3,7 +3,7 @@ import ContentBox from 'ui/components/data-display/ContentBox';
 
 export default function Home() {
     return (
-        <div>
+        <>
             <Head>
                 <title>Instituto Educacional Emmanuel :: Home</title>
             </Head>
@@ -14,6 +14,6 @@ export default function Home() {
             >
                 Olá, Web Developers!
             </ContentBox>
-        </div>
+        </>
     );
 }
