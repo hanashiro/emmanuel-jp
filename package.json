@@ -9,9 +9,15 @@
         "thumbnails": "node ./scripts/thumbnail-generator.js"
     },
     "dependencies": {
+        "@emotion/react": "^11.4.0",
+        "@emotion/styled": "^11.3.0",
+        "@material-ui/core": "^5.0.0-alpha.32",
+        "@types/react": "^17.0.5",
         "next": "10.2.0",
+        "prettier": "^2.2.1",
         "react": "17.0.2",
-        "react-dom": "17.0.2"
+        "react-dom": "17.0.2",
+        "typescript": "^4.2.4"
     },
     "devDependencies": {
         "node-thumbnail": "^0.15.0"

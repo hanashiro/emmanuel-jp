@@ -1,0 +1,26 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Tahoma, Verdana, sans-serif;
+    background-color: var(--background);
+    font-size: 14px;
+    color: #000000;
+    --background: #9bbbda;
+    --background-dark: #92b6d8;
+    --background-light: #cfdfee;
+    --header-color: #d1d7dc;
+    --link-color: #006699;
+}
+
+body {
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
