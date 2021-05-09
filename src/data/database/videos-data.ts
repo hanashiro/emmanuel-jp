@@ -1,14 +1,4 @@
-interface VideoCollection {
-    year: number | string;
-    videos: Video[];
-}
-
-interface Video {
-    title: string;
-    url: string;
-    src: string;
-    id: string;
-}
+import { VideoCollection } from 'data/@types/VideoInterface';
 
 export const videosList: VideoCollection[] = [
     {

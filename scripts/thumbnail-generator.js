@@ -1,46 +1,10 @@
-const fs = require('fs'),
-    path = require('path'),
-    thumb = require('node-thumbnail').thumb;
-
-const PICTURES_FOLDER = path.resolve(__dirname, '../public/img/fotos'),
-    PICTURES_FOLDER_NAME = 'fotos',
-    THUMBNAILS_FOLDER_NAME = 'fotos-thumb';
-
-const Folders = {
-    flatten(lists) {
-        return lists.reduce((a, b) => a.concat(b), []);
-    },
-
-    getDirectories(srcpath) {
-        return fs
-            .readdirSync(srcpath)
-            .map((file) => path.join(srcpath, file))
-            .filter((path) => fs.statSync(path).isDirectory());
-    },
-
-    getDirectoriesRecursive(srcpath) {
-        return [
-            srcpath,
-            ...Folders.flatten(
-                Folders.getDirectories(srcpath).map(
-                    Folders.getDirectoriesRecursive
-                )
-            ),
-        ];
-    },
-
-    createDirectory(dirName) {
-        if (!fs.existsSync(dirName)) {
-            fs.mkdirSync(dirName);
-        }
-    },
-
-    syncFoldersStructure(base, oldName, newName) {
-        Folders.getDirectoriesRecursive(base).forEach((folder) => {
-            Folders.createDirectory(folder.replace(oldName, newName));
-        });
-    },
-};
+const thumb = require('node-thumbnail').thumb,
+    {
+        PICTURES_FOLDER,
+        PICTURES_FOLDER_NAME,
+        THUMBNAILS_FOLDER_NAME,
+        Folders,
+    } = require('./file-utils');
 
 Folders.syncFoldersStructure(
     PICTURES_FOLDER,
@@ -57,9 +21,11 @@ foldersList.forEach((folder) => {
                 PICTURES_FOLDER_NAME,
                 THUMBNAILS_FOLDER_NAME
             ),
-            width: 200,
+            width: 150,
             skip: true,
             ignore: true,
+            prefix: '',
+            suffix: '',
         },
         function (files, err, stdout, stderr) {
             console.log('All done!');

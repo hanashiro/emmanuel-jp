@@ -6,7 +6,10 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "thumbnails": "node ./scripts/thumbnail-generator.js"
+        "export": "next export",
+        "thumbnails": "node ./scripts/thumbnail-generator.js",
+        "pictures-data": "node ./scripts/pictures-data-generator.js",
+        "deploy": "gh-pages -d out"
     },
     "dependencies": {
         "@emotion/react": "^11.4.0",
@@ -20,6 +23,7 @@
         "typescript": "^4.2.4"
     },
     "devDependencies": {
-        "node-thumbnail": "^0.15.0"
+        "node-thumbnail": "^0.15.0",
+        "gh-pages": "^3.1.0"
     }
 }

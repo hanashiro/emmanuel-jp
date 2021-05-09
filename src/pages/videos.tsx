@@ -1,4 +1,4 @@
-import { Typography, Dialog } from '@material-ui/core';
+import { Dialog } from '@material-ui/core';
 import { videosList } from 'data/database/videos-data';
 import Head from 'next/head';
 import { useState } from 'react';
