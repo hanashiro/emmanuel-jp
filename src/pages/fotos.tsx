@@ -36,6 +36,7 @@ export default function Fotos() {
                                 key={picture}
                                 src={`/img/fotos-thumb${picture}`}
                                 onClick={() => setPicture(picture)}
+                                loading="lazy"
                             />
                         ))}
                     </PictureGrid>
