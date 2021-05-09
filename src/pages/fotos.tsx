@@ -28,7 +28,7 @@ export default function Fotos() {
             {picturesList.reverse().map((pictureCollection) => (
                 <ContentBox
                     key={pictureCollection.name}
-                    title={pictureCollection.name}
+                    title={pictureCollection.name.replace('/', '')}
                 >
                     <PictureGrid>
                         {pictureCollection.files.map((picture) => (
