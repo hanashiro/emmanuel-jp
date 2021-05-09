@@ -33,30 +33,34 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
                     </a>
                 </Link>
                 <ContentBox title={'Seções'}>
-                    <Link href="/">
-                        <a>Home</a>
-                    </Link>
-                    <br />
-                    <br />
-                    <Link href="/fotos">
-                        <a>Fotos</a>
-                    </Link>
-                    <br />
-                    <Link href="/videos">
-                        <a>Vídeos</a>
-                    </Link>
-                    <br />
-                    <Link href="/localizacao">
-                        <a>Localização</a>
-                    </Link>
-                    <br />
-                    <Link
-                        rel="noopener noreferrer"
-                        target={'_blank'}
-                        href={'https://www.facebook.com/groups/434885159866193'}
-                    >
-                        <a>Grupo do Facebook</a>
-                    </Link>
+                    <div onClick={onClose}>
+                        <Link href="/">
+                            <a>Home</a>
+                        </Link>
+                        <br />
+                        <br />
+                        <Link href="/fotos">
+                            <a>Fotos</a>
+                        </Link>
+                        <br />
+                        <Link href="/videos">
+                            <a>Vídeos</a>
+                        </Link>
+                        <br />
+                        <Link href="/localizacao">
+                            <a>Localização (Veja o prédio)</a>
+                        </Link>
+                        <br />
+                        <a
+                            rel="noopener noreferrer"
+                            target={'_blank'}
+                            href={
+                                'https://www.facebook.com/groups/434885159866193'
+                            }
+                        >
+                            Grupo do Facebook
+                        </a>
+                    </div>
                 </ContentBox>
 
                 <ContentBox title={'Estatísticas'}>

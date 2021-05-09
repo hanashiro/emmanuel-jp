@@ -9,7 +9,7 @@ export default function Videos() {
     return (
         <>
             <Head>
-                <title>Instituto Educacional Emmanuel :: Home</title>
+                <title>Instituto Educacional Emmanuel :: Vídeos</title>
             </Head>
 
             <h1>Vídeos</h1>
