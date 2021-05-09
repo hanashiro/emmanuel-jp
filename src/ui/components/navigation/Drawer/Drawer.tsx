@@ -37,15 +37,23 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
                     </Link>
                     <br />
                     <br />
-                    <Link href="/">
+                    <Link href="/fotos">
                         <a>Fotos</a>
                     </Link>
                     <br />
-                    <Link href="/">
+                    <Link href="/videos">
+                        <a>Vídeos</a>
+                    </Link>
+                    <br />
+                    <Link href="/localizacao">
                         <a>Localização</a>
                     </Link>
                     <br />
-                    <Link href="/">
+                    <Link
+                        rel="noopener noreferrer"
+                        target={'_blank'}
+                        href={'https://www.facebook.com/groups/434885159866193'}
+                    >
                         <a>Grupo do Facebook</a>
                     </Link>
                 </ContentBox>
