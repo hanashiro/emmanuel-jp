@@ -388,6 +388,7 @@ export const picturesList: PictureCollection[] = [
             '/outros/246554_4218564742876_249762018_n.jpg',
             '/outros/blobane.gif',
             '/outros/map.jpg',
+            '/outros/acampamento 2007.png',
         ],
     },
     {
