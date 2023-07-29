@@ -25,5 +25,9 @@
     "devDependencies": {
         "node-thumbnail": "^0.15.0",
         "gh-pages": "^3.1.0"
+    },
+    "engines": {
+        "node": ">=16.18.1"
     }
 }
+

@@ -314,6 +314,10 @@ export const picturesList: PictureCollection[] = [
         ],
     },
     {
+        name: '/2006/07',
+        files: ['/2006/07/mininas-do-chale.jpg', '/2006/07/no-quarto.jpg'],
+    },
+    {
         name: '/2006/09',
         files: [
             '/2006/09/396926_382178365185451_874176351_n.jpg',
@@ -363,6 +367,16 @@ export const picturesList: PictureCollection[] = [
         files: [
             '/2007/04/556363_370894782980476_1674959879_n.jpg',
             '/2007/04/600770_370894892980465_1191418620_n.jpg',
+            '/2007/04/084.jpg',
+            '/2007/04/090.jpg',
+        ],
+    },
+    {
+        name: '/2007/03/30',
+        files: [
+            '/2007/03/30/varias-041.jpg',
+            '/2007/03/30/varias-044.jpg',
+            '/2007/03/30/varias-048.jpg',
         ],
     },
     {
