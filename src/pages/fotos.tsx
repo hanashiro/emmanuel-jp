@@ -2,8 +2,9 @@ import Head from 'next/head';
 import { Dialog, DialogTitle, IconButton } from '@material-ui/core';
 import ContentBox from 'ui/components/data-display/ContentBox';
 import { picturesList } from 'data/database/pictures-data';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { PictureGrid } from '@styles/pages/fotos.styled';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 export default function Fotos() {
     const [folderName, setFolderName] = useState(''),
@@ -55,6 +56,24 @@ export default function Fotos() {
             );
         }, [currentPictureIndex, folderName]);
 
+    const goToPreviousPicture = useCallback(() => {
+        if (previousPicture === '') return;
+        setPicture(previousPicture);
+    }, [previousPicture]);
+
+    const goToNextPicture = useCallback(() => {
+        if (nextPicture === '') return;
+        setPicture(nextPicture);
+    }, [nextPicture]);
+
+    function closeDialog() {
+        setFolderName('');
+        setPicture('');
+    }
+
+    useHotkeys('left', goToPreviousPicture, [goToPreviousPicture]);
+    useHotkeys('right', goToNextPicture, [goToNextPicture]);
+
     return (
         <>
             <Head>
@@ -63,27 +82,17 @@ export default function Fotos() {
 
             <h1>Fotos</h1>
 
-            <Dialog
-                open={selectedPicture !== ''}
-                onClose={() => {
-                    setFolderName('');
-                    setPicture('');
-                }}
-            >
+            <Dialog open={selectedPicture !== ''} onClose={closeDialog}>
                 <DialogTitle>
                     <IconButton
                         disabled={previousPicture === ''}
-                        onClick={() => {
-                            setPicture(previousPicture);
-                        }}
+                        onClick={goToPreviousPicture}
                     >
                         <i className="fas fa-chevron-left" />
                     </IconButton>
                     <IconButton
                         disabled={nextPicture === ''}
-                        onClick={() => {
-                            setPicture(nextPicture);
-                        }}
+                        onClick={goToNextPicture}
                     >
                         <i className="fas fa-chevron-right" />
                     </IconButton>
@@ -92,10 +101,7 @@ export default function Fotos() {
                             position: 'absolute',
                             right: 16,
                         }}
-                        onClick={() => {
-                            setFolderName('');
-                            setPicture('');
-                        }}
+                        onClick={closeDialog}
                     >
                         <i className="fas fa-times" />
                     </IconButton>
