@@ -39,6 +39,17 @@ const theme = createMuiTheme({
     shape: {
         borderRadius: 3,
     },
+    components: {
+        MuiTooltip: {
+            styleOverrides: {
+                tooltip: {
+                    fontSize: '0.875rem',
+                    borderRadius: 4,
+                },
+            },
+        },
+    },
 });
 
 export default theme;
+

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Dialog, DialogTitle, IconButton } from '@material-ui/core';
+import { Dialog, DialogTitle, IconButton, Tooltip } from '@material-ui/core';
 import ContentBox from 'ui/components/data-display/ContentBox';
 import { picturesList } from 'data/database/pictures-data';
 import { useCallback, useMemo, useState } from 'react';
@@ -68,6 +68,14 @@ export default function Fotos() {
         setPicture(nextPicture);
     }, [nextPicture]);
 
+    const downloadPicture = useCallback(() => {
+        if (selectedPicture === '') return;
+        const link = document.createElement('a');
+        link.href = `/img/fotos${selectedPicture}`;
+        link.download = selectedPicture;
+        link.click();
+    }, [selectedPicture]);
+
     function closeDialog() {
         setFolderName('');
         setPicture('');
@@ -90,28 +98,47 @@ export default function Fotos() {
                 fullScreen={isMobile}
                 maxWidth="lg"
             >
-                <DialogTitle>
-                    <IconButton
-                        disabled={previousPicture === ''}
-                        onClick={goToPreviousPicture}
-                    >
-                        <i className="fas fa-chevron-left" />
-                    </IconButton>
-                    <IconButton
-                        disabled={nextPicture === ''}
-                        onClick={goToNextPicture}
-                    >
-                        <i className="fas fa-chevron-right" />
-                    </IconButton>
-                    <IconButton
-                        sx={{
-                            position: 'absolute',
-                            right: 16,
-                        }}
-                        onClick={closeDialog}
-                    >
-                        <i className="fas fa-times" />
-                    </IconButton>
+                <DialogTitle
+                    sx={{
+                        bgcolor: 'var(--background-light)',
+                    }}
+                >
+                    <Tooltip title="Anterior">
+                        <IconButton
+                            disabled={previousPicture === ''}
+                            onClick={goToPreviousPicture}
+                        >
+                            <i className="fas fa-chevron-left" />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Próxima">
+                        <IconButton
+                            disabled={nextPicture === ''}
+                            onClick={goToNextPicture}
+                        >
+                            <i className="fas fa-chevron-right" />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Download">
+                        <IconButton
+                            disabled={selectedPicture === ''}
+                            onClick={downloadPicture}
+                            sx={{ ml: 4 }}
+                        >
+                            <i className="fas fa-download" />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Fechar">
+                        <IconButton
+                            sx={{
+                                position: 'absolute',
+                                right: 16,
+                            }}
+                            onClick={closeDialog}
+                        >
+                            <i className="fas fa-times" />
+                        </IconButton>
+                    </Tooltip>
                 </DialogTitle>
 
                 {selectedPicture && (
