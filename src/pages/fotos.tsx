@@ -5,8 +5,10 @@ import { picturesList } from 'data/database/pictures-data';
 import { useCallback, useMemo, useState } from 'react';
 import { PictureGrid } from '@styles/pages/fotos.styled';
 import { useHotkeys } from 'react-hotkeys-hook';
+import useIsMobile from 'data/hooks/useIsMobile';
 
 export default function Fotos() {
+    const isMobile = useIsMobile();
     const [folderName, setFolderName] = useState(''),
         [selectedPicture, setPicture] = useState(''),
         picturesListElements = useMemo(
@@ -82,7 +84,12 @@ export default function Fotos() {
 
             <h1>Fotos</h1>
 
-            <Dialog open={selectedPicture !== ''} onClose={closeDialog}>
+            <Dialog
+                open={selectedPicture !== ''}
+                onClose={closeDialog}
+                fullScreen={isMobile}
+                maxWidth="lg"
+            >
                 <DialogTitle>
                     <IconButton
                         disabled={previousPicture === ''}
