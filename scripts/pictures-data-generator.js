@@ -7,10 +7,10 @@ const finalList = [];
 foldersList.forEach((folder) => {
     const folderObj = {
         name: folder
-            .replace(/.*\\public\\img\\fotos(.*)/g, '$1')
-            .replace(/\\/g, '/'),
+            .replace(/.*\/public\/img\/fotos(.*)/g, '$1')
+            .replace(/\//g, '/'),
         files: Folders.getFiles(folder).map((a) =>
-            a.replace(/.*\\public\\img\\fotos(.*)/g, '$1').replace(/\\/g, '/')
+            a.replace(/.*\/public\/img\/fotos(.*)/g, '$1').replace(/\//g, '/')
         ),
     };
 
@@ -35,6 +35,7 @@ export const picturesList: PictureCollection[] = ${JSON.stringify(finalList)};
 // console.log(
 //     3333,
 //     Folders.getFiles(PICTURES_FOLDER + '/2006').map((a) =>
-//         a.replace(/.*\\public\\img\\fotos(.*)/g, '$1')
+//         a.replace(/.*\/public\/img\/fotos(.*)/g, '$1')
 //     )
 // );
+

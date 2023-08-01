@@ -38,6 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 1. Save the pictures in the folder `public/img/fotos`. Create folders to define dates to group the pictures. The root must be the year, and the subfolders must be the month and day. Example: `public/img/fotos/2021/08/01/`. You can ignore the day and the month if you don't know them.
    If you don't know the date, just put the picture in the `sem-data` folder.
 
-2. Update the file `src/data/database/pictures-data.ts` with the new pictures. Keep the alphabetical order.
+2. Run the command `npm run pictures-data` to update the pictures list.
 
 3. Run the command `npm run thumbnails` to generate the thumbnails.

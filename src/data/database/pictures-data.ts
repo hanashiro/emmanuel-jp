@@ -363,20 +363,20 @@ export const picturesList: PictureCollection[] = [
         ],
     },
     {
-        name: '/2007/04',
-        files: [
-            '/2007/04/556363_370894782980476_1674959879_n.jpg',
-            '/2007/04/600770_370894892980465_1191418620_n.jpg',
-            '/2007/04/084.jpg',
-            '/2007/04/090.jpg',
-        ],
-    },
-    {
         name: '/2007/03/30',
         files: [
             '/2007/03/30/varias-041.jpg',
             '/2007/03/30/varias-044.jpg',
             '/2007/03/30/varias-048.jpg',
+        ],
+    },
+    {
+        name: '/2007/04',
+        files: [
+            '/2007/04/084.jpg',
+            '/2007/04/090.jpg',
+            '/2007/04/556363_370894782980476_1674959879_n.jpg',
+            '/2007/04/600770_370894892980465_1191418620_n.jpg',
         ],
     },
     {
@@ -400,9 +400,9 @@ export const picturesList: PictureCollection[] = [
         files: [
             '/outros/2015.jpg',
             '/outros/246554_4218564742876_249762018_n.jpg',
+            '/outros/acampamento 2007.png',
             '/outros/blobane.gif',
             '/outros/map.jpg',
-            '/outros/acampamento 2007.png',
         ],
     },
     {
@@ -545,3 +545,4 @@ export const picturesList: PictureCollection[] = [
         ],
     },
 ];
+
